@@ -16,10 +16,12 @@ For assistance:
 
 const itemsPerPage = 9;
 
+
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
+
 function showPage(list, page) {
    const studentList = document.querySelector("ul[class='student-list']");
    console.log(studentList);
@@ -34,6 +36,7 @@ function showPage(list, page) {
    }
 
    for(let i = startIdx; i < endIdx; i++) {
+      // Declare all the elements to dynamically insert
       let studentItem = document.createElement("LI");
       let studentDetails = document.createElement("DIV");
       let profilePicture = document.createElement("IMG");
@@ -42,25 +45,31 @@ function showPage(list, page) {
       let joinedDetails = document.createElement("DIV");
       let dateJoined = document.createElement("span");
 
+      // Set the proper class names
       studentItem.className = "student-item cf";
       studentDetails.className = "student-details";
 
+      // Put in profile picture and its HTML properties
       profilePicture.className = "avatar";
       profilePicture.src = list[i].picture.large;
       profilePicture.alt = "Profile Picture";
 
+      // Set the name
       studentName.innerHTML = list[i].name.first + " " + list[i].name.last;
 
+      // Set the email
       studentEmail.className = "email";
       studentEmail.innerHTML = list[i].email;
       
-      //Build first div
+      // Build first div
       studentDetails.append(profilePicture, studentName, studentEmail);
       
+      // Set other details
       joinedDetails.className = "joined-details";
       dateJoined.className = "date";
       dateJoined.innerHTML = list[i].registered.date;
 
+      // Add it all together and add to DOM
       joinedDetails.append(dateJoined);
 
       studentItem.append(studentDetails, joinedDetails);
@@ -68,7 +77,6 @@ function showPage(list, page) {
       studentList.appendChild(studentItem);
    }
 }
-
 
 /*
 Create the `addPagination` function
