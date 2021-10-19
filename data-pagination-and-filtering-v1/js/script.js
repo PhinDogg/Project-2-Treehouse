@@ -20,7 +20,8 @@ const itemsPerPage = 9;
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
-*/
+*/ 
+
 
 function showPage(list, page) {
    const studentList = document.querySelector("ul[class='student-list']");
